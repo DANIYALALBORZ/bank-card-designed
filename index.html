@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Card</title>
+    <link rel="stylesheet" href="assets/css/bank-card.css">
+</head>
+
+<body class="flex justify-center items-center h-screen bg-gradient-to-r from-slate-900 to-slate-700 perspective">
+
+    <div class="card-container" onclick="this.classList.toggle('flipped')">
+        <div class="card-front">
+            <div class="flex w-[95%] justify-around items-center">
+                <img class="w-12" src="./assets/img/chip.png" alt="">
+                <p class="text-2xl font-['Nabla']">
+                    Danial Bank
+                </p>
+            </div>
+            <input class="card-number" type="text" placeholder="6219 8619 7934 2473">
+            <div class="flex justify-around font-['Oxanium']">
+                <input
+                    class="w-16 text-center bg-transparent border-[1px] border-black/20 rounded-lg text-2xl md:text-5xl placeholder:text-black font-bold"
+                    type="number" placeholder="cvv2">
+                <div class="flex">
+                    <input
+                        class="w-16 text-center bg-transparent border-[1px] border-black/20 rounded-lg text-xl md:text-5xl placeholder:text-black font-bold"
+                        type="number" placeholder="YY">
+                    <input
+                        class="w-16 text-center bg-transparent border-[1px] border-black/20 rounded-lg text-xl md:text-5xl placeholder:text-black font-bold"
+                        type="number" placeholder="MM">
+                </div>
+            </div>
+        </div>
+        <div class="card-back flex justify-center items-center">
+            <div class="absolute top-5 bg-black w-full h-1/4"></div>
+
+            <p class=" mt-14 font-['Oxanium']">
+                Fuel my Coding with a coffee🍵
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>

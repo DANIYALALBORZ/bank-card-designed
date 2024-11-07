@@ -75,3 +75,28 @@ inputs.forEach((input, index) => {
         })
     }
 })
+
+// -------------------------------------------------------------------------------
+// save card info to local storage
+
+saveBtn.addEventListener('click', () => {
+    let cardNumber = cardNumberInput.value;
+    let savedCardNumbers = localStorage.getItem('cardNumbers');
+    if (cardNumber.length === 19) {
+
+        savedCardNumbers ? savedCardNumbers = JSON.parse(savedCardNumbers) : savedCardNumbers = [];
+
+        if (!savedCardNumbers.includes(cardNumber)) {
+            savedCardNumbers.push(cardNumber);
+
+            localStorage.setItem('cardNumbers', JSON.stringify(savedCardNumbers))
+
+            console.log('حله');
+        } else {
+            console.log('این کارت قبلا ذخیره شده')
+        }
+
+    }
+})
+
+// -------------------------------------------------------------------------------

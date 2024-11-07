@@ -562,8 +562,16 @@ video {
   top: 1.25rem;
 }
 
+.z-10 {
+  z-index: 10;
+}
+
 .mt-14 {
   margin-top: 3.5rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
 }
 
 .flex {
@@ -576,6 +584,10 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .w-12 {
@@ -594,6 +606,10 @@ video {
   width: 100%;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
 .items-center {
   align-items: center;
 }
@@ -602,12 +618,24 @@ video {
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .justify-around {
   justify-content: space-around;
 }
 
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
 }
 
 .border-\[1px\] {
@@ -627,6 +655,31 @@ video {
   background-color: transparent;
 }
 
+.bg-\[\#FFC738\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 199 56 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#e8a333\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(232 163 51 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(161 98 7 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+}
+
+.bg-orange-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -641,6 +694,18 @@ video {
   --tw-gradient-to: #334155 var(--tw-gradient-to-position);
 }
 
+.p-4 {
+  padding: 1rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.ps-4 {
+  padding-inline-start: 1rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -651,6 +716,14 @@ video {
 
 .font-\[\'Oxanium\'\] {
   font-family: 'Oxanium';
+}
+
+.font-\[\'bungee\'\] {
+  font-family: 'bungee';
+}
+
+.font-\[nabla\] {
+  font-family: nabla;
 }
 
 .text-2xl {
@@ -694,6 +767,9 @@ video {
   display: flex;
   height: 25%;
   width: 95%;
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 1000ms;

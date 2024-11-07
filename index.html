@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="assets/css/bank-card.css">
 </head>
 
-<body class="flex justify-center items-center h-screen bg-gradient-to-r from-slate-900 to-slate-700 perspective">
+<body
+    class="flex flex-col justify-center items-center h-screen bg-gradient-to-r from-slate-900 to-slate-700 perspective">
 
-    <div class="card-container" onclick="this.classList.toggle('flipped')">
+    <div class="card-container">
         <div class="card-front">
             <div class="flex w-[95%] justify-around items-center">
                 <img class="w-12" src="./assets/img/chip.png" alt="">
@@ -20,16 +21,16 @@
             </div>
             <input class="card-number" type="text" placeholder="6219 8619 7934 2473">
             <div class="flex justify-around font-['Oxanium']">
-                <input
+                <input id="cvv2"
                     class="w-16 text-center bg-transparent border-[1px] border-black/20 rounded-lg text-2xl md:text-5xl placeholder:text-black font-bold"
-                    type="number" placeholder="cvv2">
+                    type="text" placeholder="cvv2">
                 <div class="flex">
-                    <input
+                    <input id="year"
                         class="w-16 text-center bg-transparent border-[1px] border-black/20 rounded-lg text-xl md:text-5xl placeholder:text-black font-bold"
-                        type="number" placeholder="YY">
-                    <input
+                        type="text" placeholder="YY">
+                    <input id="month"
                         class="w-16 text-center bg-transparent border-[1px] border-black/20 rounded-lg text-xl md:text-5xl placeholder:text-black font-bold"
-                        type="number" placeholder="MM">
+                        type="text" placeholder="MM">
                 </div>
             </div>
         </div>
@@ -42,6 +43,12 @@
         </div>
     </div>
 
+    <div class="card-bg rounded-3xl mt-10">
+        <button id="save-btn" class="bg-transparent p-2 ps-4 font-['bungee'] font-bold text-2xl">Save</button>
+        <button class="bg-orange-500 h-full z-10 rounded-3xl p-2 font-[nabla] text-2xl">Donate</button>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>

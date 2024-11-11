@@ -23,13 +23,7 @@ const saveBtn = document.getElementById('save-btn');
 cardNumberInput.addEventListener('input', (e) => {
     let cardNumber = e.target.value;
 
-    cardNumber = cardNumber.replace(/[۰-۹]/g, function (d) {
-        return String.fromCharCode(d.charCodeAt(0) - 1728);
-    });
-
-    // 1. \s means all of the white spaces like tab, space, Enter...
-    // 2. /\s/g, '' means to replace whiteSpaces with '';
-    cardNumber = cardNumber.replace(/[^0-9۰-۹]/g, '');
+    cardNumber = numberRegex(cardNumber);
 
     if (cardNumber.length >= 16) {
         cardNumber = cardNumber.slice(0, 16);
@@ -44,7 +38,19 @@ cardNumberInput.addEventListener('input', (e) => {
     e.target.value = formattedCardNumber;
 })
 
-cvv2.addEventListener('input', () => {
+function numberRegex(numb) {
+    numb = numb.replace(/[۰-۹]/g, function (d) {
+        return String.fromCharCode(d.charCodeAt(0) - 1728);
+    });
+    // 1. \s means all of the white spaces like tab, space, Enter...
+    // 2. /\s/g, '' means to replace whiteSpaces with '';
+    numb = numb.replace(/[^0-9۰-۹]/g, '');
+
+    return numb;
+}
+
+cvv2.addEventListener('input', (e) => {
+    e.target.value = numberRegex(e.target.value);
     if (cvv2.value.length > 3) {
         cvv2.value = cvv2.value.slice(0, 4)
         year.focus()
@@ -52,7 +58,8 @@ cvv2.addEventListener('input', () => {
     removeSvCards()
 })
 
-year.addEventListener('input', () => {
+year.addEventListener('input', (e) => {
+    e.target.value = numberRegex(e.target.value);
     if (year.value.length > 1) {
         year.value = year.value.slice(0, 2);
         month.focus()
@@ -61,6 +68,7 @@ year.addEventListener('input', () => {
 })
 
 month.addEventListener('input', (e) => {
+    e.target.value = numberRegex(e.target.value);
     if (month.value.length > 1) {
         month.value = month.value.slice(0, 2)
         month.blur();

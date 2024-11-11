@@ -136,7 +136,6 @@ saveBtn.addEventListener('click', () => {
 
 cardNumberInput.addEventListener('click', () => {
     let savedCardNumbers = JSON.parse(localStorage.getItem('cardNumbers'));
-    console.log(savedCardNumbers);
     if (savedCardNumbers) {
         showSaved(savedCardNumbers);
     }
@@ -144,7 +143,14 @@ cardNumberInput.addEventListener('click', () => {
 
 function showSaved(savedCardNumbers) {
     let i = savedCardNumbers.length <= 4 ? 0 : savedCardNumbers.length - 4
-    let topPosition = 8;
+    let topPosition;
+    // if (window.innerWidth < 768) {
+    //     topPosition = 2;
+    // } else {
+    //     topPosition = 3;
+    // }
+    topPositionHelper = window.innerWidth < 768 ? 2 : 3;
+    topPosition = topPositionHelper;
 
     removeSvCards()
 
@@ -152,10 +158,10 @@ function showSaved(savedCardNumbers) {
         let container = document.getElementById('card-numbers-container');
         let input = document.createElement('input');
         input.type = 'button';
-        console.log(topPosition);
-        input.classList = `saved-card-numbers -top-${topPosition}`;
+        input.classList = `saved-card-numbers`;
+        input.style.top = `-${topPosition}rem`;
         input.value = savedCardNumbers[i].cardNumber;
-        topPosition = topPosition + 8;
+        topPosition = topPosition + topPositionHelper;
         let yearValue = savedCardNumbers[i].cardYear;
         let monthValue = savedCardNumbers[i].cardMonth;
         input.addEventListener('click', (e) => {

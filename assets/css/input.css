@@ -25,7 +25,7 @@
 /* ------------------------------------------------------------------------------------------------------- */
 
 .card-container {
-    @apply flex relative w-[95%] h-[25%] md:w-[80%] shadow-2xl md:h-1/3 xl:w-[80%] xl:h-1/2 preserve-3d transition-all duration-1000;
+    @apply flex relative w-[95%] h-[20%] sm:w-[80%] shadow-2xl sm:h-1/3 lg:w-[55%] lg:h-1/4 xl:h-1/3 xl:w-[40%] preserve-3d transition-all duration-1000;
 }
 
 .card-sides {
@@ -45,7 +45,7 @@
 }
 
 .card-number {
-    @apply bg-transparent border-[1px] border-black/20 rounded-lg w-[95%] font-['bungee'] text-2xl md:text-5xl placeholder:text-black font-bold text-center;
+    @apply bg-transparent border-[1px] border-black/20 rounded-lg w-[95%] font-['bungee'] text-2xl [@media(min-width:375px)]:text-3xl [@media(min-width:425px)]:text-[2rem] [@media(min-width:640px)]:text-4xl [@media(min-width:768px)]:text-5xl [@media(min-width:1280px)]:text-5xl placeholder:text-black font-bold text-center;
 }
 
 .saved-card-numbers {
@@ -65,11 +65,4 @@
 @font-face {
     font-family: 'Nabla';
     src: url(../fonts/Nabla-Regular-VariableFont_EDPT\,EHLT.ttf);
-}
-
-
-
-
-.CreateCssForDom {
-    @apply -top-8 -top-24 -top-32 -top-16
 }

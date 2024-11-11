@@ -45,17 +45,27 @@ cardNumberInput.addEventListener('input', (e) => {
 })
 
 cvv2.addEventListener('input', () => {
-    cvv2.value.length >= 4 && year.focus()
+    if (cvv2.value.length > 3) {
+        cvv2.value = cvv2.value.slice(0, 4)
+        year.focus()
+    }
+    removeSvCards()
 })
 
 year.addEventListener('input', () => {
-    year.value.length >= 2 && month.focus()
+    if (year.value.length > 1) {
+        year.value = year.value.slice(0, 2);
+        month.focus()
+    }
+    removeSvCards()
 })
 
 month.addEventListener('input', (e) => {
-    if (month.value.length >= 2) {
+    if (month.value.length > 1) {
+        month.value = month.value.slice(0, 2)
         month.blur();
     }
+    removeSvCards()
 })
 
 
@@ -84,19 +94,82 @@ saveBtn.addEventListener('click', () => {
     let savedCardNumbers = localStorage.getItem('cardNumbers');
     if (cardNumber.length === 19) {
 
+        const cardInfo = {
+            cardNumber: cardNumber.replace(/ /g, ''),
+            cardYear: year.value,
+            cardMonth: month.value.padStart(2, '0'),
+        }
+
         savedCardNumbers ? savedCardNumbers = JSON.parse(savedCardNumbers) : savedCardNumbers = [];
 
-        if (!savedCardNumbers.includes(cardNumber)) {
-            savedCardNumbers.push(cardNumber);
+        let cardExist = false;
+        savedCardNumbers.forEach(cardNumb => {
+            cardExist = cardNumb.cardNumber === cardNumber.replace(/ /g, '') && true;
+        })
 
+        if (parseInt(month.value) <= 0 || parseInt(month.value) > 12) {
+            alert('ماه انقضاء اشتباه است.')
+        } else if (!cardExist) {
+            month.value = month.value.padStart(2, '0');
+            savedCardNumbers.push(cardInfo);
             localStorage.setItem('cardNumbers', JSON.stringify(savedCardNumbers))
-
-            console.log('حله');
+            // location.reload(true);
         } else {
-            console.log('این کارت قبلا ذخیره شده')
+            alert('این کارت قبلا ذخیره شده')
         }
 
     }
 })
+
+// -------------------------------------------------------------------------------
+
+// -------------------------------------------------------------------------------
+// show saved card numbers from local storage
+
+cardNumberInput.addEventListener('click', () => {
+    let savedCardNumbers = JSON.parse(localStorage.getItem('cardNumbers'));
+    console.log(savedCardNumbers);
+    if (savedCardNumbers) {
+        showSaved(savedCardNumbers);
+    }
+})
+
+function showSaved(savedCardNumbers) {
+    let i = savedCardNumbers.length <= 4 ? 0 : savedCardNumbers.length - 4
+    let topPosition = 8;
+
+    removeSvCards()
+
+    for (i; i < savedCardNumbers.length; i++) {
+        let container = document.getElementById('card-numbers-container');
+        let input = document.createElement('input');
+        input.type = 'button';
+        console.log(topPosition);
+        input.classList = `saved-card-numbers -top-${topPosition}`;
+        input.value = savedCardNumbers[i].cardNumber;
+        topPosition = topPosition + 8;
+        let yearValue = savedCardNumbers[i].cardYear;
+        let monthValue = savedCardNumbers[i].cardMonth;
+        input.addEventListener('click', (e) => {
+            e.stopPropagation();
+            cardNumberInput.value = input.value.replace(/(\d{4})(?=\d)/g, '$1 ');
+            year.value = yearValue;
+            month.value = monthValue;
+            removeSvCards()
+        })
+        container.appendChild(input);
+    }
+
+    document.addEventListener('click', (e) => {
+        removeSvCards()
+    })
+}
+
+function removeSvCards() {
+    let svCards = document.querySelectorAll('#card-numbers-container>input.saved-card-numbers');
+    svCards.forEach(card => {
+        card.remove();
+    })
+}
 
 // -------------------------------------------------------------------------------

@@ -558,6 +558,26 @@ video {
   position: absolute;
 }
 
+.relative {
+  position: relative;
+}
+
+.-top-16 {
+  top: -4rem;
+}
+
+.-top-24 {
+  top: -6rem;
+}
+
+.-top-32 {
+  top: -8rem;
+}
+
+.-top-8 {
+  top: -2rem;
+}
+
 .top-5 {
   top: 1.25rem;
 }
@@ -566,12 +586,17 @@ video {
   z-index: 10;
 }
 
-.mt-14 {
-  margin-top: 3.5rem;
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mt-10 {
   margin-top: 2.5rem;
+}
+
+.mt-14 {
+  margin-top: 3.5rem;
 }
 
 .flex {
@@ -582,12 +607,12 @@ video {
   height: 25%;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
 .h-full {
   height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .w-12 {
@@ -618,24 +643,16 @@ video {
   justify-content: center;
 }
 
-.justify-between {
-  justify-content: space-between;
-}
-
 .justify-around {
   justify-content: space-around;
 }
 
-.justify-evenly {
-  justify-content: space-evenly;
+.rounded-3xl {
+  border-radius: 1.5rem;
 }
 
 .rounded-lg {
   border-radius: 0.5rem;
-}
-
-.rounded-3xl {
-  border-radius: 1.5rem;
 }
 
 .border-\[1px\] {
@@ -651,33 +668,13 @@ video {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
-.bg-transparent {
-  background-color: transparent;
-}
-
-.bg-\[\#FFC738\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 199 56 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#e8a333\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(232 163 51 / var(--tw-bg-opacity));
-}
-
-.bg-yellow-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(161 98 7 / var(--tw-bg-opacity));
-}
-
-.bg-yellow-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
-}
-
 .bg-orange-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 115 22 / var(--tw-bg-opacity));
+}
+
+.bg-transparent {
+  background-color: transparent;
 }
 
 .bg-gradient-to-r {
@@ -690,12 +687,23 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.to-slate-700 {
-  --tw-gradient-to: #334155 var(--tw-gradient-to-position);
+.from-yellow-500 {
+  --tw-gradient-from: #eab308 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(234 179 8 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.p-4 {
-  padding: 1rem;
+.via-amber-600 {
+  --tw-gradient-to: rgb(217 119 6 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #d97706 var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.to-orange-700 {
+  --tw-gradient-to: #c2410c var(--tw-gradient-to-position);
+}
+
+.to-slate-700 {
+  --tw-gradient-to: #334155 var(--tw-gradient-to-position);
 }
 
 .p-2 {
@@ -844,8 +852,6 @@ video {
 }
 
 .card-number {
-  margin-left: auto;
-  margin-right: auto;
   width: 95%;
   border-radius: 0.5rem;
   border-width: 1px;
@@ -875,6 +881,44 @@ video {
   }
 }
 
+.saved-card-numbers {
+  position: absolute;
+  left: 0.5rem;
+  width: 95%;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgb(0 0 0 / 0.2);
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-from: #eab308 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(234 179 8 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-to: rgb(217 119 6 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #d97706 var(--tw-gradient-via-position), var(--tw-gradient-to);
+  --tw-gradient-to: #c2410c var(--tw-gradient-to-position);
+  text-align: center;
+  font-family: 'bungee';
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+.saved-card-numbers::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.saved-card-numbers::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+@media (min-width: 768px) {
+  .saved-card-numbers {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
 @font-face {
   font-family: 'bungee';
 
@@ -891,6 +935,10 @@ video {
   font-family: 'Nabla';
 
   src: url(../fonts/Nabla-Regular-VariableFont_EDPT\,EHLT.ttf);
+}
+
+.CreateCssForDom {
+  top: -4rem;
 }
 
 .placeholder\:text-black::-moz-placeholder {

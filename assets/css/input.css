@@ -45,7 +45,11 @@
 }
 
 .card-number {
-    @apply bg-transparent border-[1px] border-black/20 rounded-lg w-[95%] font-['bungee'] text-2xl md:text-5xl placeholder:text-black font-bold text-center mx-auto;
+    @apply bg-transparent border-[1px] border-black/20 rounded-lg w-[95%] font-['bungee'] text-2xl md:text-5xl placeholder:text-black font-bold text-center;
+}
+
+.saved-card-numbers {
+    @apply absolute left-2 bg-gradient-to-r from-yellow-500 via-amber-600 to-orange-700 border-[1px] border-black/20 rounded-lg w-[95%] font-['bungee'] text-2xl md:text-5xl placeholder:text-black font-bold text-center;
 }
 
 @font-face {
@@ -61,4 +65,11 @@
 @font-face {
     font-family: 'Nabla';
     src: url(../fonts/Nabla-Regular-VariableFont_EDPT\,EHLT.ttf);
+}
+
+
+
+
+.CreateCssForDom {
+    @apply -top-8 -top-24 -top-32 -top-16
 }
